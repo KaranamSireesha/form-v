@@ -4,7 +4,7 @@ const mailId = document.getElementById("mail-id");
 const tc = document.getElementById("tc");
 const submitButton = document.getElementById("sub-btn")
 const password = document.getElementById("pass")
-const emailregex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,5})+$/;
+const emailregex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
  
 form.addEventListener("change", stateHandle);
 function stateHandle() {
@@ -14,8 +14,8 @@ function stateHandle() {
  else {
     submitButton.disabled = true;
  }
-}
 
+}
 
 
 function validate(){

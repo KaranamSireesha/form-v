@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form-v.css">
+    
+</head>
+
+<body>
+    <form>
+        <div class="form-list" id="form-list">
+            <div class="name">
+                <label>Name:</label>
+                <input type="text" placeholder="Please enter your name" id="name">
+            </div>
+            <div class="password">
+                <label>Password:</label>
+                <input type="password" placeholder="set a strong password" id="pass">
+            </div>
+            <div class="mail">
+                <label>Email-Id:</label>
+                <input type="email" placeholder="your email Id" id="mail-id">
+            </div>
+            <div class="check-box">
+                <input type="checkbox" id="tc" class="terms" >
+                <label>I agree to the terms and conditions</label>
+            </div>
+            <input type="submit" id="sub-btn" class="button" disabled="disabled" onclick="validate()">
+        </div>
+    </form>
+    <script  src="form-v.js"></script>
+</body>
+
+</html>

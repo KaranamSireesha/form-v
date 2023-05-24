@@ -5,34 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Form Validation</title>
     <link rel="stylesheet" href="form-v.css">
-    
+
 </head>
 
 <body>
-    <form>
-        <div class="form-list" id="form-list">
-            <div class="name">
+    <div class="container">
+        <form id="form" class="form">
+            <div class="form-list">
                 <label>Name:</label>
                 <input type="text" placeholder="Please enter your name" id="name">
+                <small class="small">Error msg</small>
             </div>
-            <div class="password">
-                <label>Password:</label>
-                <input type="password" placeholder="set a strong password" id="pass">
-            </div>
-            <div class="mail">
+
+            <div class="form-list">
                 <label>Email-Id:</label>
                 <input type="email" placeholder="your email Id" id="mail-id">
+                <small class="small">Error msg</small>
             </div>
+
             <div class="check-box">
-                <input type="checkbox" id="tc" class="terms" >
+                <input type="checkbox" id="tc" class="terms">
                 <label>I agree to the terms and conditions</label>
+                <div>
+                    <small class="small">Error msg</small>
+                </div>
             </div>
-            <input type="submit" id="sub-btn" class="button" disabled="disabled" onclick="validate()">
-        </div>
+            <input type="submit" id="sub-btn" class="button">
+            <div id="submit-container"></div>
+
+    </div>
     </form>
-    <script  src="form-v.js"></script>
+    </div>
+    <script src="form-v.js"></script>
 </body>
 
 </html>

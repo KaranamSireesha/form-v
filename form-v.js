@@ -1,51 +1,77 @@
-const form = document.getElementById("form-list")
-const fname = document.getElementById("name");
-const mailId = document.getElementById("mail-id");
-const tc = document.getElementById("tc");
-const submitButton = document.getElementById("sub-btn")
-const password = document.getElementById("pass")
-const emailregex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
- 
-form.addEventListener("change", stateHandle);
-function stateHandle() {
- if (document.getElementById("form-list").value !="") {
-    submitButton.disabled = false;
- }
- else {
-    submitButton.disabled = true;
- }
+const form = document.getElementById("form");
+const uname = document.getElementById("name");
+const email = document.getElementById("mail-id");
+const checkBox = document.getElementById("tc");
+const submitContainer = document.getElementById("submit-container");
 
+
+uname.addEventListener('keydown', function(e){
+    var key = e.key
+    if (/^\d$/.test(key)) {
+        e.preventDefault();
+      }
+})
+
+email.addEventListener("input", function(e){
+    var inputValue = e.target.value;
+    if(inputValue.length >25){
+        e.preventDefault();
+        e.target.value = inputValue.slice(0,25);
+    }
+})
+
+function showError(input, message){
+ const formControl = input.parentElement;
+ formControl.className = 'form-list error';
+ const small = formControl.querySelector('small');
+ small.innerText = message;
+ small.style.visibility = "visible"
 }
 
+function showSuccess(input){
+    formControl = input.parentElement;
+    formControl.className = 'form-list success';
+    const small = formControl.querySelector('small');
+    small.style.visibility = "hidden"
+}
 
-function validate(){
-    let nameValue = fname.value.trim();
-    let emailValue = mailId.value.trim();
-    let passwordValue = password.value.trim();
+function emailCheck(email) {
+    var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  }
 
-    if(nameValue ==='' ||  passwordValue ==='' ||emailValue ==='' ){
-        alert("please fill all the feilds");
-        return false
+
+form.addEventListener('submit',function(e){
+e.preventDefault();
+    
+    if(uname.value.trim() ===''){
+      showError(uname, 'Name cannot be empty');
     }
-    else if(!emailCheck(emailValue)){
-        alert("please enter a valid emailId")
-        return false
+    else if(uname.value.length < 3){
+        showError(uname,'Name must have more than three characters');
     }
-   
-    else if(!tc.checked){
-        alert("agree to terms and conditions");
+    else if(uname.value.length > 15){
+        showError(uname,'Name is too big');
     }
     else{
-        return true;
-    }
-    
-    function emailCheck(input) {
-        let valid = emailregex.test(input);
-        return valid;
+        showSuccess(uname)
     }
 
-    
+    if(email.value.trim() ===''){
+        showError(email, 'Email cannot be empty');
+      }
+      else if(!emailCheck(email.value.trim())){
+        showError(email, 'please enter a valid mail address')
+      }
+      else{
+          showSuccess(email)
+      }
+      if(!checkBox.checked){
+        showError(checkBox, 'agree to terms and conditions');
 
+      }
+      else{
+        showSuccess(checkBox)
+      }
     
-}
-
+})

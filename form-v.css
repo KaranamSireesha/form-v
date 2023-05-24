@@ -1,32 +1,72 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
-    background-color: rgb(244, 214, 236);
-}
-.form-list{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    margin-top: 50px;
-    background-color: white;
-    width: 500px;
-    height: 300px;
-    max-width: 100%;
-    line-height: 3.5;
-    border-radius: 3px;
+  font-family: "Nunito", sans-serif;
+  background-color: rgb(244, 214, 236);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 
-/* #sub-btn{
-    width: 50px;
-    height: 30px;
-    border: none;
-    color: white;
-    background-color: green;
-} */
+.container {
+  background-color: white;
+  border-radius: 5px;
+  width: 500px;
+  height: 380px;
+  margin-top: 50px;
+  line-height: 2;
+}
+.form {
+  padding: 10px 40px;
+}
+
+.form-list {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+
+.form-list input {
+  border: 2px solid #f0f0f0;
+  border-radius: 3px;
+  display: block;
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.form-list input:focus {
+  outline: 0;
+  border-color: #777;
+}
+.form-list.success input {
+  border-color: rgb(46, 204, 113);
+}
+
+.form-list.error input {
+  border-color: rgb(231, 76, 60);
+}
+
+.form-list .small {
+  color: rgb(231, 76, 60);
+  visibility: hidden;
+}
+
+.check-box .small {
+    color: rgb(231, 76, 60);
+    visibility: hidden;
+  }
+
+
+.button {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+}
